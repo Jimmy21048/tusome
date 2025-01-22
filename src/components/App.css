@@ -104,15 +104,58 @@ header .item {
   padding-top: 20px;
 }
 .upload {
-  height: 20%;
-  border: 1px solid;
+  height: 50px;
   width: 120px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload .fa-solid {
+  font-size: 50px;
 }
 .filter-options {
-  border: 1px solid;
+  /* border: 1px solid; */
   height: 80%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 10px;
+}
+.filter-options label {
+  height: 9vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.filter-options input {
+  height: 6vh;
+  width: 90%;
+  border-radius: 10px;
+  padding-left: 5px;
+  border: 1px solid rgb(94, 211, 247);
+}
+.filter-options select {
+  border: 1px solid rgb(94, 211, 247);
+}
+.filter-options input:focus {
+  outline:1px solid powderblue;
+}
+.filter-options select:focus {
+  outline:1px solid powderblue;
+}
+.filter-options select {
+  width: 100px;
+  height: 5vh;
+  border-radius: 5px;
+}
+.hero-btn1 {
+  height: 5vh;
+  width: 120px;
+  padding: 0 5px;
+  border-radius: 10px;
+  border: 1px solid;
 }
 
 /* login */

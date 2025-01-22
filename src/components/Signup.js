@@ -74,13 +74,13 @@ export default function Signup() {
                 <h1 className="title2">SIGN UP</h1>
                 <form className="signin-form" onSubmit={handleSubmit}>
                     <label>Username
-                        <input type="text" name="username" onChange={(e) => handleChange(e)} />
+                        <input type="text" name="username" required onChange={(e) => handleChange(e)} />
                     </label>
                     <label>Email
-                        <input type="text" name="email" onChange={(e) => handleChange(e)} />
+                        <input type="text" name="email" required onChange={(e) => handleChange(e)} />
                     </label>
                     <label>Password
-                        <input type="password" name="pwd" onChange={(e) => handleChange(e)} />
+                        <input type="password" name="pwd" required onChange={(e) => handleChange(e)} />
                     </label>
                     <label>Confirm password
                         <input type="password" name="pwd2" onChange={(e) => handleChange(e)} />

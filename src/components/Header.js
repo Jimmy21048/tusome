@@ -13,7 +13,7 @@ export default function Header() {
 
             <div className="acc-icon item">
                 {/* <Link className="acc-link" >AC</Link> */}
-                <Link to={'/signup'}>Sign in</Link>
+                <Link to={'/login'}>Sign in</Link>
             </div>
         </header>
     )
