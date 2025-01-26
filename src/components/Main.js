@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import Header from "./Header"
 import axios from 'axios'
+import { useState } from "react"
 
 export default function Main() {
+    const[course, setCourse] = useState('true')
+    const[query, setQuery] = useState()
+    const[filteredCourse, setFilteredCourse] = useState([])
     const history = useNavigate()
     axios.defaults.withCredentials = true
 
@@ -11,13 +15,28 @@ export default function Main() {
             "Content-Type": "application/json"
         },
     }).then(response => {
-        console.log(response.data)
         if(response.data.valid === false) {
             return history('/login')
+        } else {
+            setCourse(response.data.course)
         }
+
     }).catch(err => {
         console.log("Could not complete operation")
     })
+    
+    const handleChange = (e) => {
+        const value = e.target.value.toLowerCase()
+        // setQuery(value)
+
+        if(value) {
+            setFilteredCourse(course.filter((item) => {
+                return item.course_name.toLowerCase().includes(value)
+            }));
+        } else {
+            setFilteredCourse([])
+        }
+    }
     return (
         <div className="main">
             <Header />
@@ -52,10 +71,20 @@ export default function Main() {
                             </select>
                         </label>
                         <label>Course
-                            <input />
+                            <input onChange={(e) => handleChange(e)} />
+                            <ul>
+                                {
+                                    filteredCourse.map((item, index) => {
+                                        return <li key={item.course_code}>
+                                            {item.course_name}
+                                        </li>
+                                    })
+                                }
+                            </ul>
                         </label>
                         <label>Unit
                             <input />
+                            
                         </label>
                         <button className="hero-btn1">Search</button>
                         <button className="hero-btn1">Preferences</button>
